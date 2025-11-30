@@ -12,8 +12,8 @@
  * limitations under the License.
  */
 export function merge(
-  target: Record<string, unknown>,
-  source: Record<string, unknown>
+  target: any,
+  source: any
 ): void {
   if (!isObject(target) && !isObject(source)) {
     return;
