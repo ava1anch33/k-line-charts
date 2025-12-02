@@ -12,18 +12,15 @@
  * limitations under the License.
  */
 
-export function throttle<T extends unknown[], C = unknown>(
-    func: (this: C, ...args: T) => unknown, 
-    wait?: number
-): (this: C, ...args: T) => void {
-    let previous = 0
-    return function (this: C, ...args: T): void {
-        const now = Date.now()
-        if (now - previous > (wait ?? 20)) {
-            func.apply(this, args)
-            previous = now
-        }
-    };
+export function throttle (func: (...args: unknown[]) => unknown, wait?: number): () => void {
+  let previous = 0
+  return function () {
+    const now = Date.now()
+    if (now - previous > (wait ?? 20)) {
+      func.apply(this, arguments)
+      previous = now
+    }
+  }
 }
 
 // export function memoize<R1 = any, R2 = any> (func: (...args: any[]) => R1, resolver?: (...args: any[]) => R2): (...args: any[]) => R1 {

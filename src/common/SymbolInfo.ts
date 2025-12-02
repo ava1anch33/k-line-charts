@@ -13,13 +13,13 @@
  */
 
 export interface SymbolInfo {
-    ticker: string
-    pricePrecision: number
-    volumePrecision: number
-    [key: string]: unknown
+  ticker: string
+  pricePrecision: number
+  volumePrecision: number
+  [key: string]: unknown
 }
 
 export const SymbolDefaultPrecisionConstants = {
-    PRICE: 2,
-    VOLUME: 0
+  PRICE: 2,
+  VOLUME: 0
 }

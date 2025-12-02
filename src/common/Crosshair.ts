@@ -15,12 +15,11 @@
 import type Coordinate from './Coordinate'
 import type { KLineData } from './Data'
 
-
 export default interface Crosshair extends Partial<Coordinate> {
-    paneId?: string
-    realX?: number
-    timestamp?: number
-    kLineData?: KLineData
-    dataIndex?: number
-    realDataIndex?: number
+  paneId?: string
+  realX?: number
+  timestamp?: number
+  kLineData?: KLineData
+  dataIndex?: number
+  realDataIndex?: number
 }

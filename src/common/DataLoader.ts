@@ -14,34 +14,34 @@
 
 import type Nullable from './Nullable'
 import type { KLineData } from './Data'
-import type { Period } from './Period'
 import type { SymbolInfo } from './SymbolInfo'
+import type { Period } from './Period'
 
 export type DataLoadType = 'init' | 'forward' | 'backward' | 'update'
 
 export type DataLoadMore = boolean | {
-    backward?: boolean
-    forward?: boolean
+  backward?: boolean
+  forward?: boolean
 }
 
 export interface DataLoaderGetBarsParams {
-    type: DataLoadType
-    timestamp: Nullable<number>
-    symbol: SymbolInfo
-    period: Period
-    callback: (data: KLineData[], more?: DataLoadMore) => void
+  type: DataLoadType
+  timestamp: Nullable<number>
+  symbol: SymbolInfo
+  period: Period
+  callback: (data: KLineData[], more?: DataLoadMore) => void
 }
 
 export interface DataLoaderSubscribeBarParams {
-    symbol: SymbolInfo
-    period: Period
-    callback: (data: KLineData) => void
+  symbol: SymbolInfo
+  period: Period
+  callback: (data: KLineData) => void
 }
 
 export type DataLoaderUnsubscribeBarParams = Omit<DataLoaderSubscribeBarParams, 'callback'>
 
 export interface DataLoader {
-    getBars: (params: DataLoaderGetBarsParams) => void | Promise<void>
-    subscribeBar?: (params: DataLoaderSubscribeBarParams) => void
-    unsubscribeBar?: (params: DataLoaderUnsubscribeBarParams) => void
+  getBars: (params: DataLoaderGetBarsParams) => void | Promise<void>
+  subscribeBar?: (params: DataLoaderSubscribeBarParams) => void
+  unsubscribeBar?: (params: DataLoaderUnsubscribeBarParams) => void
 }
